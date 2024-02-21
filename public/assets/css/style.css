@@ -20,7 +20,6 @@ a {
   color: #111111;
   transition: 0.2s;
 }
-
 a:hover {
   color: #999999;
 }
@@ -73,7 +72,6 @@ h6 {
 header {
   font-family: "Josefin Sans", sans-serif;
 }
-
 header nav ul {
   display: none;
 }
@@ -97,7 +95,6 @@ article {
 .post-title {
   margin-top: 0;
 }
-
 .post-title a {
   color: #324360;
   text-transform: uppercase;
@@ -108,7 +105,6 @@ article {
   line-height: 1.3em;
   transition: all 0.3s ease;
 }
-
 .post-title a:hover {
   color: #35c4ce;
 }
@@ -124,7 +120,6 @@ footer {
 #footer a {
   color: #989898;
 }
-
 #footer a:hover {
   color: #111111;
 }
@@ -140,14 +135,12 @@ footer {
   padding: 20px 0;
   line-height: 2em;
 }
-
 .footer-social-links a {
   margin: 0 10px;
   font-size: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
-
 .footer-social-links a span {
   display: none;
 }

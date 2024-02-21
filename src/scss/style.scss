@@ -1,7 +1,30 @@
+// variables
+$textcolor: #111111;
+$bodycolor: #787878;
+$headingfont:'Josefin Sans', sans-serif;
+$containerwidth: 94%;
+$fontweight:400;
+
+// mixins
+@mixin h-styling{
+    margin-top: 25px;
+    margin-bottom: 20px;
+    font-family: $headingfont; 
+    font-weight: $fontweight;
+    line-height: 1.3em;
+    word-wrap: break-word;
+    color: $textcolor;
+}
+@mixin flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     font-family: Quando;
     font-size: 15px;
-    color: #787878;
+    color: $bodycolor;
 }
 img {
     max-width: 100%;
@@ -11,28 +34,25 @@ p {
     margin-bottom: 25px;
     line-height: 1.6em;
 }
+// nesting 1
 a {
-    font-weight: 400;
+    font-weight: $fontweight;
     text-decoration: none;
-    color: #111111;
+    color: $textcolor;
     transition: .20s;
+
+    &:hover {
+        color: #999999;
+    }
 }
-a:hover {
-    color: #999999;
-}
+// mixin 1
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-    margin-top: 25px;
-    margin-bottom: 20px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.3em;
-    word-wrap: break-word;
-    color: #111111;
+    @include h-styling;
 }
 h1 {
     font-size: 37px;
@@ -55,17 +75,21 @@ h6 {
 
 
 .container {
-    width: 94%;
+    width: $containerwidth;
     margin: 0 auto;
 }
 
 
 /* header and main nav */
+// nesting 2
 header {
-    font-family: 'Josefin Sans', sans-serif;
-}
-header nav ul {
-    display: none;
+    font-family: $headingfont;
+
+    nav {
+        ul {
+            display: none;
+        }
+    }
 }
 
 .top-logo {
@@ -85,21 +109,24 @@ article {
     margin-bottom: 10px;
 }
 
+// nesting 3
 .post-title {
     margin-top: 0;
-}
-.post-title a {
-    color: #324360;
-    text-transform: uppercase;
-    font-size: 26px;
-    font-weight: 900;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    line-height: 1.3em;
-    transition: all .3s ease;
-}
-.post-title a:hover {
-    color: #35c4ce;
+
+    a {
+        color: #324360;
+        text-transform: uppercase;
+        font-size: 26px;
+        font-weight: 900;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        line-height: 1.3em;
+        transition: all .3s ease;
+
+        &:hover {
+            color: #35c4ce;
+        }
+    }
 }
 
 
@@ -111,30 +138,38 @@ footer {
     background: #eaf2ff;
     color: #989898;
 }
-#footer a {
-    color: #989898;
+// nesting 4
+#footer {
+    a {
+        color: #989898;
+
+        &:hover {
+            color: $textcolor;
+        }
+    }
 }
-#footer a:hover {
-    color: #111111;
-}
+
 .footer-logo {
     width: 200px;
     margin: 20px auto;
     text-align: center;
     vertical-align: middle;
 }
+// nesting 5
 .footer-social-links {
     padding: 20px 0;
     line-height: 2em;
-}
-.footer-social-links a {
-    margin: 0 10px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-.footer-social-links a span {
-    display: none;
+
+    a {
+        margin: 0 10px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+
+        span {
+            display: none;
+        }
+    }
 }
 #footer-copyright {
     padding: 20px 0;
@@ -147,13 +182,11 @@ footer {
     .container {
         width: 90%;
     }
-
+    // mixin 2
     header nav {
         max-width: 1170px;
         margin: 0 auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flex-center;
         height: 60px;
     }
     header nav ul {
@@ -165,7 +198,7 @@ footer {
         line-height: 24px;
     }
     header nav a {
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: $headingfont;
         color: #324360;
         letter-spacing: 1px;
         text-transform: uppercase;
